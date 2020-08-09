@@ -1,3 +1,4 @@
+import { AndroidPermissions } from '@ionic-native/android-permissions/ngx';
 import { NavController } from '@ionic/angular';
 import { Component, OnInit, ViewChild } from '@angular/core';
 
@@ -11,7 +12,8 @@ export class IntroLivenessPage implements OnInit {
   @ViewChild('mySlider') mySlider: any;
 
   constructor(
-    private navCtrl: NavController
+    private navCtrl: NavController,
+    private androidPermission: AndroidPermissions
   ) { }
 
   ngOnInit() {
@@ -26,7 +28,12 @@ export class IntroLivenessPage implements OnInit {
   }
 
   initLiveness() {
-    this.navCtrl.navigateForward('liveness');
+    this.androidPermission.requestPermission(this.androidPermission.PERMISSION.CAMERA).then(() => {
+      this.navCtrl.navigateForward('liveness');
+    }).catch(err => {
+      console.log("ERROR ==> ", err);
+    })
+    
   }
 
 }

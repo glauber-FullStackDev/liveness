@@ -76,3 +76,26 @@ canvas {
     text-align: center;
     margin    : 20px auto;
 }
+
+.ctImgs {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content:space-around;
+
+    img {
+        width: 30%;
+    }
+}
+
+.bnt {
+    width: 50%;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 15px;
+    background-color: #87cefa;
+    margin-top: 20px;
+    color: #fff;
+    font-weight: bolder;
+    text-align: center;
+}

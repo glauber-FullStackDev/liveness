@@ -4,6 +4,18 @@
     <ng-lottie [options]="options" (animationCreated)="animationCreated($event)"></ng-lottie>
     <h4 class="p-text">Aguarde...</h4>
   </div>
+
+  <div *ngIf="finalizado" class="bloc-map">
+    <ng-lottie [options]="options2" (animationCreated)="animationCreated($event)"></ng-lottie>
+    <h4 class="p-text">Parabéns você é uma pessoa real...</h4>
+    <div class="ctImgs">
+      <img src="{{dataEnvio.st.base64Img}}" alt="">
+      <img src="{{dataEnvio.so.base64Img}}" alt="">
+      <img src="{{dataEnvio.pi.base64Img}}" alt="">
+    </div>
+
+    <div (click)="goToInicio()" class="bnt">Voltar ao Início</div>
+  </div>
   <audio *ngIf="!ready && controlAudio === 0" src="../../assets/audios/posicione-seu-rosto-e-agu-w2n.mp3" autoplay ></audio>
   <audio *ngIf="!ready && controlAudio === 1" src="../../assets/audios/sorria-durante-3-segundos-c2e.mp3" autoplay ></audio>
   <audio *ngIf="!ready && controlAudio === 2" src="../../assets/audios/feche-um-dos-olhos-durant-j9f.mp3" autoplay ></audio>

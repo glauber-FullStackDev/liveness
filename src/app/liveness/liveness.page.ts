@@ -1,7 +1,7 @@
 import { Camera } from '@ionic-native/camera/ngx';
 import { AndroidPermissions } from '@ionic-native/android-permissions/ngx';
 import { Component, OnInit } from '@angular/core';
-import { NavController, LoadingController } from '@ionic/angular';
+import { NavController, LoadingController, Platform } from '@ionic/angular';
 import { ActivatedRoute } from '@angular/router';
 import { AnimationOptions } from 'ngx-lottie';
 // import * as faceapi from 'face-api.js';
@@ -16,6 +16,10 @@ export class LivenessPage implements OnInit {
 
   options: AnimationOptions = {
     path: '/assets/imgs/liveness/28265-hourglass-loading.json',
+  };
+
+  options2: AnimationOptions = {
+    path: '/assets/imgs/liveness/10236-reward-badge.json',
   };
 
   video;
@@ -44,13 +48,18 @@ export class LivenessPage implements OnInit {
   stream;
   controlAudio = 0;
 
+  mediaRecorder;
+  chunks: any[] = [];
+  finalizado: boolean = false;
+
 
   constructor(
     public navCtrl: NavController,
     public loadCtrl: LoadingController,
     public androidPermission: AndroidPermissions,
     public activatedRoute: ActivatedRoute,
-    public camera: Camera
+    public camera: Camera,
+    public plt: Platform
   ) {
   }
 
@@ -75,8 +84,9 @@ export class LivenessPage implements OnInit {
       faceapi.nets.faceRecognitionNet.loadFromUri('https://raw.githubusercontent.com/justadudewhohacks/face-api.js/master/weights'),
       faceapi.nets.faceExpressionNet.loadFromUri('https://raw.githubusercontent.com/justadudewhohacks/face-api.js/master/weights'),
     ]).then(() => {
+      console.log("ENTROU AQUI");
       this.video = document.getElementById('video');
-      this.androidPermission.requestPermission(this.androidPermission.PERMISSION.CAMERA).then(() => {
+      // this.androidPermission.requestPermission(this.androidPermission.PERMISSION.CAMERA).then(() => {
         this.startVideo();
         this.video.addEventListener('play', () => {
           this.ready = false;
@@ -150,7 +160,7 @@ export class LivenessPage implements OnInit {
                   t.stop();
                 })
                 clearInterval(setIntervalVar);
-                this.navCtrl.navigateRoot('');
+                this.finalizado = true;
               }
             }
 
@@ -173,9 +183,9 @@ export class LivenessPage implements OnInit {
       }).catch(err => {
         alert("ERROR 2")
       })
-    }).catch(err => {
-      alert("ERROR 1")
-    })
+    // }).catch(err => {
+    //   alert("ERROR 1")
+    // })
 
 
   }
@@ -198,6 +208,10 @@ export class LivenessPage implements OnInit {
 
   animationCreated(event) {
 
+  }
+
+  goToInicio() {
+    this.navCtrl.navigateRoot('');
   }
 
 }
