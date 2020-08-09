@@ -1,4 +1,4 @@
-# Prova de Vida (Ionic 5) - Fluxo de verificação front-end - LIVENESS
+# Proof of Life (Ionic 5) - Front-end verification flow - LIVENESS
 
 <img src='./src-readme/colagem_principal.png'/>
 
