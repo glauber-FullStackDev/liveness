@@ -1,0 +1,75 @@
+<ion-content>
+  <div class="bkg">
+    <ion-slides #mySlider>
+      <ion-slide>
+        <div class="conteudo">
+          <span class="text1">Última etapa!</span>
+          <div class="imagem">
+            <img src="../../assets/imgs/liveness/intro1-liveness.png" alt="" />
+          </div>
+        </div>
+  
+        <div class="text">
+          <div class="bloco1">
+            <span class="text1">Para garantir o melhor resultado</span><br />
+            <span class="text2"
+              >Posicione o rosto na marcação e mantenha<br />a câmera na altura
+              dos olhos e aguarde a detecção da face e instruções.</span
+            >
+          </div>
+  
+          <ion-icon
+            name="arrow-forward"
+            class="ico-seta"
+            (click)="slideNext()"
+          ></ion-icon>
+        </div>
+      </ion-slide>
+  
+      <ion-slide>
+        <div class="conteudo" padding>
+          <div class="imagem">
+            <img src="../../assets/imgs/liveness/intro2-liveness.png" alt="" />
+          </div>
+  
+          <div class="text">
+            <div class="bloco1">
+              <span class="text1">Use uma boa iluminação</span><br />
+              <span class="text2"
+                >Escolha um local com boa iluminação e mantenha seu rosto
+                totalmente visível. Evite pontos de luz fortes atrás de
+                você.</span
+              >
+            </div>
+  
+            <ion-icon
+              name="arrow-forward"
+              class="ico-seta"
+              (click)="slideNext()"
+            ></ion-icon>
+          </div>
+        </div>
+      </ion-slide>
+  
+      <ion-slide>
+        <div class="conteudo" padding>
+          <div class="imagem">
+            <img style="margin-top: 20vh;" src="../../assets/imgs/liveness/intro3-liveness.png" alt="" />
+          </div>
+  
+          <div class="text">
+            <div class="bloco1">
+              <span class="text1">Retire Acessórios</span><br />
+              <span class="text2"
+                >Retire qualquer tipo acessório: óculos, chapéu ou qualquer coisa
+                que possa atrapalhar o reconhecimento do seu rosto.</span
+              >
+            </div>
+  
+            <div (click)="initLiveness()" class="ico-seta">Iniciar</div>
+          </div>
+        </div>
+      </ion-slide>
+    </ion-slides>
+  </div>
+</ion-content>
