@@ -1,0 +1,21 @@
+
+<ion-content padding>
+  <div *ngIf="ready" class="bloc-map">
+    <ng-lottie [options]="options" (animationCreated)="animationCreated($event)"></ng-lottie>
+    <h4 class="p-text">Aguarde...</h4>
+  </div>
+  <audio *ngIf="!ready && controlAudio === 0" src="../../assets/audios/posicione-seu-rosto-e-agu-w2n.mp3" autoplay ></audio>
+  <audio *ngIf="!ready && controlAudio === 1" src="../../assets/audios/sorria-durante-3-segundos-c2e.mp3" autoplay ></audio>
+  <audio *ngIf="!ready && controlAudio === 2" src="../../assets/audios/feche-um-dos-olhos-durant-j9f.mp3" autoplay ></audio>
+  <audio *ngIf="!ready && controlAudio === 3" src="../../assets/audios/olhe-para-o-lado-durante-2s5.mp3" autoplay ></audio>
+  <audio *ngIf="!ready && step === 4" src="../../assets/audios/aguarde-o-processamento-qt9.mp3" autoplay></audio>
+
+  <div *ngIf="!ready" class="circulo"></div>
+  <div class="ctVideo">
+    <video id='video' width="320" height="400" autoplay muted></video>
+    <h4 class="p-text">{{instructionAtual}}</h4>
+  </div>
+
+  <canvas width="320" height="400" id="canvasVideo" style="display: none;"></canvas>
+</ion-content>
+

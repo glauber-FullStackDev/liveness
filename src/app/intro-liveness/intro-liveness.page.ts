@@ -1,3 +1,4 @@
+import { NavController } from '@ionic/angular';
 import { Component, OnInit, ViewChild } from '@angular/core';
 
 @Component({
@@ -9,7 +10,9 @@ export class IntroLivenessPage implements OnInit {
 
   @ViewChild('mySlider') mySlider: any;
 
-  constructor() { }
+  constructor(
+    private navCtrl: NavController
+  ) { }
 
   ngOnInit() {
   }
@@ -23,7 +26,7 @@ export class IntroLivenessPage implements OnInit {
   }
 
   initLiveness() {
-    
+    this.navCtrl.navigateForward('liveness');
   }
 
 }
